@@ -4,10 +4,10 @@
 
 
 def unlock(boxes, keys, bOpened):
-    '''Checks if key already used
+    '''Checks if a key was already used
     '''
     for key in keys:
-        if key in bOpened:
+        if key in bOpened or key < 0 or key > len(boxes):
             continue
         else:
             bOpened[key] = 'true'
