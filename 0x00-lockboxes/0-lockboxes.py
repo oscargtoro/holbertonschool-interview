@@ -22,6 +22,8 @@ def canUnlockAll(boxes):
         True if all boxes can be opened, else returns false
     '''
 
+    if not isinstance(boxes, list) or len(boxes) == 0:
+        return False
     bOpened = {0: 'true'}
     unlock(boxes, boxes[0], bOpened)
     for box in range(len(boxes)):
