@@ -7,8 +7,8 @@ def unlock(boxes, keys, bOpened):
     '''Checks if a key was already used
     '''
     for key in keys:
-        if key in bOpened or key < 0 or key > len(boxes):
-            continue
+        if key in bOpened or key < 0 or key >= len(boxes):
+            break
         else:
             bOpened[key] = 'true'
             unlock(boxes, boxes[key], bOpened)
