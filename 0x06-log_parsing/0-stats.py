@@ -5,7 +5,7 @@
 import sys
 
 
-def data_print(code, size, metrics):
+def data_print(codes, size, metrics):
     '''Handles metrics printing
     '''
 
@@ -39,8 +39,8 @@ if __name__ == "__main__":
                     size = size + int(stline[8])
             i += 1
             if i % 10 == 0:
-                data_print(code, size, metrics)
-        data_print(code, size, metrics)
+                data_print(codes, size, metrics)
+        data_print(codes, size, metrics)
     except KeyboardInterrupt:
-        data_print(code, size, metrics)
+        data_print(codes, size, metrics)
         raise
