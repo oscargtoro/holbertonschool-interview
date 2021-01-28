@@ -30,8 +30,9 @@ try:
             for code in codes:
                 if metrics.get(code) is not 0:
                     print('{}: {}'.format(code, metrics.get(code)))
-except KeyboardInterrupt as e:
+except KeyboardInterrupt:
     print('File size: {}'.format(size))
     for code in codes:
         if metrics.get(code) is not 0:
             print('{}: {}'.format(code, metrics.get(code)))
+    raise
