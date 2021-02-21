@@ -12,7 +12,15 @@ def validUTF8(data):
     Returns:
         True if data is a valid UTF-8 encoding, else return False
     """
-    for i in data:
-        if i.bit_length() > 8:
+
+    data_len = len(data)
+
+    for i in range(data_len):
+        char = "{0:b}".format(data[i])
+        if char[:4].startswith("1110") and len(data[i:]) < 3:
+            return False
+        if char[:4].startswith("110") and len(data[i:]) < 2:
+            return False
+        if char[:4].startswith("11110") and len(data[i:]) < 4:
             return False
     return True
