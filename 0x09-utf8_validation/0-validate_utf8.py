@@ -13,14 +13,19 @@ def validUTF8(data):
         True if data is a valid UTF-8 encoding, else return False
     """
 
-    data_len = len(data)
-
-    for i in range(data_len):
-        char = "{0:b}".format(data[i])
-        if char[:4].startswith("1110") and len(data[i:]) < 3:
-            return False
-        if char[:4].startswith("110") and len(data[i:]) < 2:
-            return False
-        if char[:4].startswith("11110") and len(data[i:]) < 4:
-            return False
-    return True
+    nbytes = 0
+    for number in data:
+        mask = 1 << 7
+        if nbytes == 0:
+            while mask & number:
+                nbytes += 1
+                mask = mask >> 1
+            if nbytes == 0:
+                continue
+            if nbytes == 1 or nbytes > 4:
+                return False
+        else:
+            if not (number & mask and not (number & (1 << 6))):
+                return False
+        nbytes -= 1
+    return nbytes == 0
