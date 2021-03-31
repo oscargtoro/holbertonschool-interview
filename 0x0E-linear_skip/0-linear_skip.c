@@ -14,5 +14,5 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 	new->n = list->n;
 	new->n = value;
-	return (new);
+	return (NULL);
 }
