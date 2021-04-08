@@ -4,5 +4,6 @@
 !*.h
 !*.py
 !*.md
+!*.js
 *main*
 !.gitignore
