@@ -26,7 +26,13 @@ int advanced_binary(int *array, size_t size, int value)
 	if (size == 1 && array[0] != value)
 		return (-1);
 	mid = (size - 1) / 2;
+
 	if (array[mid] == value)
+	{
+		if (array[mid - 1] < value)
+			return (mid);
+	}
+	if (array[mid] < value)
 	{
 		idx += mid + 1;
 		array += mid + 1;
