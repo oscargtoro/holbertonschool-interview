@@ -39,9 +39,10 @@ def count_words(subreddit, word_list, after=None, uniq_list=[], word_count=[]):
     if after is not None:
         count_words(subreddit, word_list, after, uniq_list, word_count)
     else:
-        uniq_list = [x for _, x in sorted(zip(word_count, uniq_list),
-                                          reverse=True)]
-        word_count = sorted(word_count, reverse=True)
+        lists_sorted = list(zip(word_count, uniq_list))
+        lists_sorted.sort(key=lambda p: (-p[0], p[1]))
+        word_count[:], uniq_list[:] = zip(*lists_sorted)
+
         for i in range(len(uniq_list)):
             if word_count[i] != 0:
                 word = uniq_list[i]
