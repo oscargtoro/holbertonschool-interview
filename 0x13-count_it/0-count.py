@@ -17,7 +17,7 @@ def count_words(subreddit, word_list, after=None, uniq_list=[], word_count=[]):
         The count of given keywords, if word_list contains the same word
         (case-insensitive), the final count should be the sum of each duplicate
     """
-    if after == None:
+    if after is None:
         word_list = [x.lower() for x in word_list]
         uniq_list = list(set(word_list))
         word_count = [0] * len(uniq_list)
@@ -36,7 +36,7 @@ def count_words(subreddit, word_list, after=None, uniq_list=[], word_count=[]):
             title = post['data']['title'].lower().split()
             word_count[i] += title.count(uniq_list[i].lower())
     after = r.json()['data']['after']
-    if after != None:
+    if after is not None:
         count_words(subreddit, word_list, after, uniq_list, word_count)
     else:
         uniq_list = [x for _, x in sorted(zip(word_count, uniq_list),
