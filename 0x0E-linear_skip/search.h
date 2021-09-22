@@ -1,10 +1,8 @@
 #ifndef _SEARCH_H_
 #define _SEARCH_H_
 
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 
 /**
