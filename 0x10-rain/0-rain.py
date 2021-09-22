@@ -2,6 +2,7 @@
 """Module for the method rain.
 """
 
+
 def rain(walls):
     """Calculate how many square units of water will be retained after it rains.
 
